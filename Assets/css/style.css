@@ -1,0 +1,118 @@
+/* General page layout */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #e3e4e5;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* HEADER */
+
+header {
+  z-index: 99;
+  position: sticky;
+  background-color: aqua;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  align-items: center;
+  height: 30%;
+}
+
+nav {
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(173, 142, 115);
+  padding: 1rem;
+}
+
+nav h1 {
+}
+
+.quit {
+  cursor: pointer;
+  text-decoration: none;
+  background-color: aqua;
+  color: rgb(226, 8, 8);
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: inset 0rem 0.1rem 0rem rgba(255, 255, 255, 0.3);
+  background-image: linear-gradient(
+    bottom,
+    rgba(0, 255, 255, 0.76) 0%,
+    rgba(0, 255, 255, 0.801) 100%
+  );
+}
+.quit:hover {
+  font-size: 2rem;
+  padding: 0.6rem;
+}
+
+.questionTracker {
+}
+
+.timer {
+}
+
+/* ASIDE */
+
+aside {
+  font-size: 1rem;
+  border: solid black 0.1rem;
+  background-color: #f4733d;
+}
+h2 {
+  font-size: 1.5rem;
+  background-color: #f4733d;
+}
+
+.highscores {
+}
+
+/* MAIN */
+
+.display {
+  font-size: 1rem;
+  display: flex;
+  /* border: blue dotted 0.5rem; */
+}
+
+.prompt {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: yellow dotted 0.5rem; */
+  padding-right: 5.8rem;
+}
+
+.prompt p {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.userAction {
+}
+
+.start {
+  /* flex: 1 0 50%; */
+  width: 50%;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: aqua;
+  color: rgb(226, 8, 8);
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: inset 0rem 0.1rem 0rem rgba(255, 255, 255, 0.3);
+  background-image: linear-gradient(
+    bottom,
+    rgba(0, 255, 255, 0.76) 0%,
+    rgba(0, 255, 255, 0.801) 100%
+  );
+}
