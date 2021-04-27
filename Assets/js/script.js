@@ -112,6 +112,8 @@ var questionTen = {
   //   minusTime: userAnswer === questionTen.correctAnswer,
 };
 
+var questions = [questionOne, questionTwo, questionThree, questionFour, question, five, questionSix, questionSeven, questionEight, questionNine, questionTen]
+
 var timer = document.querySelector(".timer");
 var start = document.querySelector(".start");
 
@@ -172,6 +174,7 @@ function startGame() {
     startId.setAttribute("class", "hidden");
   }
   console.log(startId);
+  console.clear();
   // Display question
   instructions.textContent = questionOne.question;
 
@@ -179,6 +182,7 @@ function startGame() {
   questionOne.possibleAnswers.sort(function (a, b) {
     return 0.5 - Math.random();
   });
+  console.log(questionOne.possibleAnswers);
 
   var testAnswers = [
     questionOne.correctAnswer,
@@ -197,247 +201,18 @@ function startGame() {
   cBtn.textContent = testAnswers[2];
   dBtn.textContent = testAnswers[3];
 
-  function answerCheck(event) {
-    var element = event.target;
+  // function answerCheck(event) {
+  //   var element = event.target;
 
-    if (element.textContent == quesitonsOne.correctAnswer) {
-      console.log(worked);
-    }
-  }
+  //   if (element.textContent == quesitonsOne.correctAnswer) {
+  //     console.log(element.textContent);
+  //   }
+  //   console.log(element.textContent);
+  // }
 
   //QUESTION TWO
 
-  instructions.textContent = questionTwo.question;
-
-  //dispaly answers a-d
-  questionTwo.possibleAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-
-  var testAnswers = [
-    questionTwo.correctAnswer,
-    questionTwo.possibleAnswers[0],
-    questionTwo.possibleAnswers[1],
-    questionTwo.possibleAnswers[2],
-  ];
-
-  testAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-  console.log(testAnswers);
-
-  aBtn.textContent = testAnswers[0];
-  bBtn.textContent = testAnswers[1];
-  cBtn.textContent = testAnswers[2];
-  dBtn.textContent = testAnswers[3];
-
-  // QUESTION THREE
-  instructions.textContent = questionThree.question;
-
-  //dispaly answers a-d
-  questionThree.possibleAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-
-  var testAnswers = [
-    questionThree.correctAnswer,
-    questionThree.possibleAnswers[0],
-    questionThree.possibleAnswers[1],
-    questionThree.possibleAnswers[2],
-  ];
-
-  testAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-  console.log(testAnswers);
-
-  aBtn.textContent = testAnswers[0];
-  bBtn.textContent = testAnswers[1];
-  cBtn.textContent = testAnswers[2];
-  dBtn.textContent = testAnswers[3];
-
-  //QUESTION FOUR
-
-  instructions.textContent = questionFour.question;
-
-  //dispaly answers a-d
-  questionFour.possibleAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-
-  var testAnswers = [
-    questionFour.correctAnswer,
-    questionFour.possibleAnswers[0],
-    questionFour.possibleAnswers[1],
-    questionFour.possibleAnswers[2],
-  ];
-
-  testAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-  console.log(testAnswers);
-
-  aBtn.textContent = testAnswers[0];
-  bBtn.textContent = testAnswers[1];
-  cBtn.textContent = testAnswers[2];
-  dBtn.textContent = testAnswers[3];
-
-  //QUESITON FIVE
-
-  instructions.textContent = questionFive.question;
-
-  //dispaly answers a-d
-  questionTwo.possibleAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-
-  var testAnswers = [
-    questionFive.correctAnswer,
-    questionFive.possibleAnswers[0],
-    questionFive.possibleAnswers[1],
-    questionFive.possibleAnswers[2],
-  ];
-
-  testAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-  console.log(testAnswers);
-
-  aBtn.textContent = testAnswers[0];
-  bBtn.textContent = testAnswers[1];
-  cBtn.textContent = testAnswers[2];
-  dBtn.textContent = testAnswers[3];
-
-  //QUESTION SIX
-
-  instructions.textContent = questionSix.question;
-
-  //dispaly answers a-d
-  questionSix.possibleAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-
-  var testAnswers = [
-    questionSix.correctAnswer,
-    questionSix.possibleAnswers[0],
-    questionSix.possibleAnswers[1],
-    questionSix.possibleAnswers[2],
-  ];
-
-  testAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-  console.log(testAnswers);
-
-  aBtn.textContent = testAnswers[0];
-  bBtn.textContent = testAnswers[1];
-  cBtn.textContent = testAnswers[2];
-  dBtn.textContent = testAnswers[3];
-
-  //QUESTION SEVEN
-
-  instructions.textContent = questionSeven.question;
-
-  //dispaly answers a-d
-  questionTen.possibleAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-
-  var testAnswers = [
-    questionSeven.correctAnswer,
-    questionSeven.possibleAnswers[0],
-    questionSeven.possibleAnswers[1],
-    questionSeven.possibleAnswers[2],
-  ];
-
-  testAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-  console.log(testAnswers);
-
-  aBtn.textContent = testAnswers[0];
-  bBtn.textContent = testAnswers[1];
-  cBtn.textContent = testAnswers[2];
-  dBtn.textContent = testAnswers[3];
-
-  // QUESTION EIGHT
-
-  instructions.textContent = questionEight.question;
-
-  //dispaly answers a-d
-  questionEight.possibleAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-
-  var testAnswers = [
-    questionEight.correctAnswer,
-    questionEight.possibleAnswers[0],
-    questionEight.possibleAnswers[1],
-    questionEight.possibleAnswers[2],
-  ];
-
-  testAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-  console.log(testAnswers);
-
-  aBtn.textContent = testAnswers[0];
-  bBtn.textContent = testAnswers[1];
-  cBtn.textContent = testAnswers[2];
-  dBtn.textContent = testAnswers[3];
-
-  // QUESTION NINE
-
-  instructions.textContent = questionNine.question;
-
-  //dispaly answers a-d
-  questionNine.possibleAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-
-  var testAnswers = [
-    questionNine.correctAnswer,
-    questionNine.possibleAnswers[0],
-    questionNine.possibleAnswers[1],
-    questionNine.possibleAnswers[2],
-  ];
-
-  testAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-  console.log(testAnswers);
-
-  aBtn.textContent = testAnswers[0];
-  bBtn.textContent = testAnswers[1];
-  cBtn.textContent = testAnswers[2];
-  dBtn.textContent = testAnswers[3];
-
-  // QUESTION TEN
-
-  instructions.textContent = questionTen.question;
-
-  //dispaly answers a-d
-  questionTen.possibleAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-
-  var testAnswers = [
-    questionTen.correctAnswer,
-    questionTen.possibleAnswers[0],
-    questionTen.possibleAnswers[1],
-    questionTen.possibleAnswers[2],
-  ];
-
-  testAnswers.sort(function (a, b) {
-    return 0.5 - Math.random();
-  });
-  console.log(testAnswers);
-
-  aBtn.textContent = testAnswers[0];
-  bBtn.textContent = testAnswers[1];
-  cBtn.textContent = testAnswers[2];
-  dBtn.textContent = testAnswers[3];
-}
+ 
 
 // listen function for clicking to start time.
 
