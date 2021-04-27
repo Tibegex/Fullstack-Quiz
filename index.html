@@ -13,7 +13,15 @@
       <nav>
         <!-- view highscore and current scord- time remaining -->
         <button class="quit" id="quit" disabled>Quit</button>
-        <h1 class="questionTracker">Current Question</h1>
+        <h1 class="questionTracker">
+          Current Question
+          <ul>
+            <button id="aBtn"><span></span></button>
+            <button id="bBtn"><span></span></button>
+            <button id="cBtn"><span></span></button>
+            <button id="dBtn"><span></span></button>
+          </ul>
+        </h1>
         <h1 class="timer">Time Remaining:</h1>
       </nav>
     </header>
@@ -29,7 +37,7 @@
           ipsum dolor sit amet.
         </p>
         <ul class="userAction"></ul>
-        <button class="start" id="start">Start</button>
+        <button class="start" class="startId">Start</button>
       </section>
     </main>
     <script src="./Assets/js/script.js"></script>
