@@ -31,9 +31,6 @@ nav {
   padding: 1rem;
 }
 
-nav h1 {
-}
-
 .quit {
   cursor: pointer;
   text-decoration: none;
@@ -54,12 +51,6 @@ nav h1 {
   padding: 0.6rem;
 }
 
-.questionTracker {
-}
-
-.timer {
-}
-
 /* ASIDE */
 
 aside {
@@ -70,9 +61,6 @@ aside {
 h2 {
   font-size: 1.5rem;
   background-color: #f4733d;
-}
-
-.highscores {
 }
 
 /* MAIN */
@@ -96,8 +84,6 @@ h2 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
-.userAction {
-}
 
 .start {
   /* flex: 1 0 50%; */
@@ -117,6 +103,6 @@ h2 {
   );
 }
 
-.startId {
-  display: hidden;
+#initials {
+  display: none;
 }

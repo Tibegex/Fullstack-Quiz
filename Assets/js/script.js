@@ -32,7 +32,7 @@ var questionThree = {
 var questionFour = {
   question:
     "Which head has the highest level of importance when read by search engines?",
-  possibleAnswers: ["h1", "h2", "h3", "h4", "h5", "h6"],
+  possibleAnswers: ["h2", "h3", "h4", "h5", "h6"],
   correctAnswer: "h1",
   //   minusTime: userAnswer === questionFour.correctAnswer,
 };
@@ -111,8 +111,20 @@ var questionTen = {
   correctAnswer: "i++",
   //   minusTime: userAnswer === questionTen.correctAnswer,
 };
+console.log(questionTen.correctAnswer);
 
-var questions = [questionOne, questionTwo, questionThree, questionFour, question, five, questionSix, questionSeven, questionEight, questionNine, questionTen]
+var questions = [
+  questionOne,
+  questionTwo,
+  questionThree,
+  questionFour,
+  questionFive,
+  questionSix,
+  questionSeven,
+  questionEight,
+  questionNine,
+  questionTen,
+];
 
 var timer = document.querySelector(".timer");
 var start = document.querySelector(".start");
@@ -128,12 +140,19 @@ var dBtn = document.querySelector("#dBtn");
 var displayAnswers;
 var startId = document.querySelector(".startId");
 var mode = "startId";
+var i = 0;
+var answerButton = document.querySelector(".answerButton");
+var finalTime;
+var initials = document.querySelector("#initials");
+var initialsInput;
 
 // setting up variable for score, time, moving questions.
 
-var score;
-
+var score = 0;
 var highScore;
+
+var highscoreDisplay = document;
+function highscoreDisplay() {}
 
 function setTime() {
   timer.textContent = "Time Remaining: " + secondsToMs(300);
@@ -141,11 +160,12 @@ function setTime() {
     secondsLeft--;
     timer.textContent = "Time Remaining: " + secondsToMs(secondsLeft);
     console.log(timer);
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0) {
       clearInterval(timerInterval);
       //sends them to input initials
-      initials();
-      p;
+
+      timer.textContent = "Time Remaining: 0:00";
+      return;
     }
   }, 1000);
 }
@@ -167,28 +187,28 @@ start.addEventListener("click", startGame);
 function randomize() {}
 
 function startGame() {
-  //Hide start button- need help
+  start.style.display = "none";
 
-  if (mode === "start") {
-    mode = "hiden";
-    startId.setAttribute("class", "hidden");
-  }
   console.log(startId);
   console.clear();
   // Display question
-  instructions.textContent = questionOne.question;
+  questionGenerator();
+}
 
-  //dispaly answers a-d
-  questionOne.possibleAnswers.sort(function (a, b) {
+//for question function
+function questionGenerator() {
+  instructions.textContent = questions[i].question;
+
+  questions[i].possibleAnswers.sort(function (a, b) {
     return 0.5 - Math.random();
   });
   console.log(questionOne.possibleAnswers);
 
   var testAnswers = [
-    questionOne.correctAnswer,
-    questionOne.possibleAnswers[0],
-    questionOne.possibleAnswers[1],
-    questionOne.possibleAnswers[2],
+    questions[i].correctAnswer,
+    questions[i].possibleAnswers[0],
+    questions[i].possibleAnswers[1],
+    questions[i].possibleAnswers[2],
   ];
 
   testAnswers.sort(function (a, b) {
@@ -200,26 +220,61 @@ function startGame() {
   bBtn.textContent = testAnswers[1];
   cBtn.textContent = testAnswers[2];
   dBtn.textContent = testAnswers[3];
+}
 
-  // function answerCheck(event) {
-  //   var element = event.target;
+//event handler for class="answerButton"
 
-  //   if (element.textContent == quesitonsOne.correctAnswer) {
-  //     console.log(element.textContent);
-  //   }
-  //   console.log(element.textContent);
-  // }
+answerButton.addEventListener("click", answerCheck);
 
-  //QUESTION TWO
+function answerCheck(event) {
+  console.log(event);
+  if (event.target.innerText === questions[i].correctAnswer) {
+    score++;
+    console.log(score);
+  } else {
+    secondsLeft = secondsLeft - 15;
+  }
 
- 
+  if (i === 9) {
+    finalTime = secondsLeft;
+    console.log(finalTime);
+    secondsLeft = 0;
+    displayIni();
+  } else {
+    i++;
+    questionGenerator();
+  }
+  console.log(i);
+}
 
-// listen function for clicking to start time.
+function displayIni() {
+  instructions.textContent = "Please inpute your initials.";
+  initials.style.display = "inline";
+}
 
-// need way to end game when time= 0
+var input = document.querySelector("#input");
+var highscoresARR = [];
+highscoresARR = JSON.parse(localStorage.getItem("highscores")) || [];
+var initialSubmit = document.querySelector("#initialSubmit");
+initialSubmit.addEventListener("click", grabInitial);
 
-// setting up high score and remembering that.
+function grabInitial() {
+  console.log(highscoresARR);
+  highscoresARR.push({
+    initials: input.value,
+    score: score,
+    finalTime: finalTime,
+  });
+  localStorage.setItem("highscores", JSON.stringify(highscoresARR));
+  highscoresARR.push({
+    initials: input.value,
+    score: score,
+    finalTime: finalTime,
+  });
 
-// need function to reset the game.
+  document.location.reload();
 
-// need a function for correct or incorrect answers.
+  displayHighscores();
+}
+
+function displayHighscores() {}
